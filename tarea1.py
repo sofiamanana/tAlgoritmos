@@ -1,3 +1,4 @@
+#Falta dejar el formato de salida de texto
 listas_wenas=[]
 
 def suma(L,lista,t):
