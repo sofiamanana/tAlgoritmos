@@ -7,10 +7,10 @@ def suma(L,lista,t):
     lista_aux.append(L[0])
     if(sum(lista_aux)==t):
         if(lista_aux in listas_wenas):
-            print("ya estaba")
+            None
         else:
             listas_wenas.append(lista_aux)
-            print("si esta",lista_aux)
+            print(lista_aux)
     elif(sum(lista_aux)>t):
         suma(L[1:],lista,t)
     elif(sum(lista_aux)<t):
@@ -36,7 +36,11 @@ def pasar_a_lista(textfile):
             lista_real.append(int(lista[i]))
         lista_real.sort()
         #print(lista_real)
-        suma(lista_real,lista_1,t)
+        print("Suma de",t,":")
+        if (lista_real == []):
+            print("Lista vacia")
+        else:
+            suma(lista_real,lista_1,t)
         #haz algo con la lista_real y volver todo a 0
         t = 0
         L = 0
