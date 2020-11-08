@@ -10,8 +10,13 @@ def suma(L,lista,t):
         if(lista_aux in listas_wenas):
             None
         else:
+            sumita=[]
             listas_wenas.append(lista_aux)
-            print(lista_aux)
+            for numero in lista_aux:
+                sumita.append(str(numero))
+                sumita.append("+")
+            sumita.pop(-1)
+            print(*sumita)
     elif(sum(lista_aux)>t):
         suma(L[1:],lista,t)
     elif(sum(lista_aux)<t):
@@ -42,14 +47,14 @@ def pasar_a_lista(textfile):
             print("Lista vacia")
         else:
             suma(lista_real,lista_1,t)
+        if(listas_wenas==[]):
+            print("NADA")
         #haz algo con la lista_real y volver todo a 0
         t = 0
         L = 0
         listas_wenas=[]
         lista_1 = []
         lista_real = []
-
-        print("------------")
     archivo.close()
 
 pasar_a_lista("algo.txt")
