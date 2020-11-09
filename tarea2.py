@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Nov  8 17:15:36 2020
-
-@author: nandi
-"""
+#ta malo
 matriz = []
 consultas = []
 contador = 0
