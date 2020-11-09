@@ -2,6 +2,8 @@
 matriz = []
 consultas = []
 contador = 0
+m_max=0
+n_max=0
 numeros = ['0','1','2','3','4','5','6','7','8','9']
 lista_visitados=[]
 contador=0
@@ -10,58 +12,59 @@ contador=0
 def recorrer(matriz1,m,n):
     global contador
     global lista_visitados
+    global m_max
+    global n_max
     if([m,n]) not in lista_visitados:
         lista_visitados.append([m,n])
         contador=contador+1
-    if(m>=m+1):
+    if(m_max>m+1):
         if(matriz1[m+1][n]=="W"):
             if([m+1,n] not in lista_visitados):
                 lista_visitados.append([m+1,n])
                 contador=contador+1
-                recorrer(matriz1,m,n-1)
+                recorrer(matriz1,m+1,n)
     if(m-1>=0):
         if(matriz1[m-1][n]=="W"):
             if([m-1,n] not in lista_visitados):
                 lista_visitados.append([m-1,n])
                 contador=contador+1
-                recorrer(matriz1,m-2,n-1)
-    if(n>=n+1):
+                recorrer(matriz1,m-1,n)
+    if(n_max>n+1):
         if(matriz1[m][n+1]=="W"):
             if([m,n+1] not in lista_visitados):
                 lista_visitados.append([m,n+1])
                 contador=contador+1
-                recorrer(matriz1,m-1,n)
+                recorrer(matriz1,m,n+1)
     if(n-1>=0):
         if(matriz1[m][n-1]=="W"):
             if([m,n-1] not in lista_visitados):
                 lista_visitados.append([m,n-1])
                 contador=contador+1
-                recorrer(matriz1,m-1,n-2)
+                recorrer(matriz1,m,n-1)
     if(m-1>=0 and n-1>=0):
         if(matriz1[m-1][n-1]=="W"):
             if([m-1,n-1] not in lista_visitados):
                 lista_visitados.append([m-1,n-1])
                 contador=contador+1
-                recorrer(matriz1,m-2,n-2)
-    if(m-1>=0 and n>=n+1):
+                recorrer(matriz1,m-1,n-1)
+    if(m-1>=0 and n_max>n+1):
         if(matriz1[m-1][n+1]=="W"):
             if([m-1,n+1] not in lista_visitados):
                 lista_visitados.append([m-1,n+1])
                 contador=contador+1
-                recorrer(matriz1,m-2,n)
-    if(m>=m+1 and n>=n+1):
+                recorrer(matriz1,m-1,n+1)
+    if(m_max>m+1 and n_max>n+1):
         if(matriz1[m+1][n+1]=="W"):
             if([m+1,n+1] not in lista_visitados):
                 lista_visitados.append([m+1,n+1])
                 contador=contador+1
-                recorrer(matriz1,m,n)
-    if(m>=m+1 and n-1>=0):
+                recorrer(matriz1,m+1,n+1)
+    if(m_max>m+1 and n-1>=0):
         if(matriz1[m+1][n-1]=="W"):
             if([m+1,n-1] not in lista_visitados):
                 lista_visitados.append([m+1,n-1])
                 contador=contador+1
-                recorrer(matriz1,m,n-2)
-                recorrer(matriz1,m,n-2)
+                recorrer(matriz1,m+1,n-1)
 
 #nxm : filas(horizontal) x columnas
 def pasar_a_matriz(textfile):
@@ -70,6 +73,8 @@ def pasar_a_matriz(textfile):
     global consultas
     global contador
     global lista_visitados
+    global m_max
+    global n_max
     n = 0;
     m = 0;
     casos = 0
@@ -81,6 +86,12 @@ def pasar_a_matriz(textfile):
             m = len(matriz[0])
             for elemento in consultas:
                 consultas=elemento.split(" ")
+                print(matriz)
+                print("consultas",consultas)
+                m_max=n
+                n_max=m
+                print("n_max:",n_max)
+                print("m_max:",m_max)
                 recorrer(matriz,int(consultas[0])-1,int(consultas[1])-1)
                 print(lista_visitados)
                 print(contador)
@@ -120,7 +131,6 @@ def pasar_a_matriz(textfile):
     archivo.close()
 
 pasar_a_matriz("algo2.txt")
-
 
 
 
