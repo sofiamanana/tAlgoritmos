@@ -86,12 +86,9 @@ def pasar_a_matriz(textfile):
             m = len(matriz[0])
             for elemento in consultas:
                 consultas=elemento.split(" ")
-                #print(matriz)
                 #print("consultas",consultas)
                 m_max=n
                 n_max=m
-                #print("n_max:",n_max)
-                #print("m_max:",m_max)
                 recorrer(matriz,int(consultas[0])-1,int(consultas[1])-1)
                 #print(lista_visitados)
                 print(contador)
@@ -114,14 +111,6 @@ def pasar_a_matriz(textfile):
     
     #Esto trabaja la ultima matriz
     m = len(matriz[0])
-    '''
-    print("Matriz: ",matriz)
-    print(matriz[0][1])
-    print(consultas)     
-    print("Valor de n: ", n)
-    print("Valor de m: ", m)
-    print("Casos de prueba: ", casos)
-    '''
     for elemento in consultas:
         consultas=elemento.split(" ")
         m_max=n
