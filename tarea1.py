@@ -1,5 +1,12 @@
 listas_wenas=[]
 
+'''
+Nombre: suma.
+Input: dos listas L y lista, y un entero t.
+Output: void
+Descripcion: funcion que calcula todas las posibilidades de sumar el entero t con los elementos dentro de la lista L, usa backtracking recursivo.
+'''
+
 def suma(L,lista,t):
     if L==[]:
         return
@@ -24,7 +31,7 @@ def suma(L,lista,t):
     return
 
 
-
+#Main:
 #Formato de archivo de texto: T(valor de suma) L(largo de lista) N(L numeros)
 flag =True
 while flag == True:
