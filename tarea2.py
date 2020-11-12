@@ -7,13 +7,8 @@ numeros = ['0','1','2','3','4','5','6','7','8','9']
 lista_visitados=[]
 contador=0
 
-'''
-Nombre: recorrer.
-Input: una matriz con el nombre de matriz1 y dos enteros m y n, que indican la posicion del nodo a buscar el patron.
-Output: void.
-Descripcion: funcion recursiva que encuentra el grafo de W unidas dentro de la matriz dada.
-'''
 
+#x = m, y=n
 def recorrer(matriz1,m,n):
     global contador
     global lista_visitados
@@ -71,18 +66,17 @@ def recorrer(matriz1,m,n):
                 contador=contador+1
                 recorrer(matriz1,m+1,n-1)
 
-#Main:
-
+#nxm : filas(horizontal) x columnas
 n = 0
 m = 0
 casos = 0
 casos = int(input())
-input() #se lee el espacio continuo a la cantidad de casos.
+input() #se lee el espacio continuo a la cantidad de casos
 flag = True
 while flag == True:
     try:
         linea = input()
-        if (linea == ''): #se acabo la matriz.
+        if (linea == ''): #se acabo la matriz
             m = len(matriz[0])
             for elemento in consultas:
                 consultas=elemento.split(" ")
@@ -100,10 +94,18 @@ while flag == True:
         else:
             linea.split(' ')
             if linea[0] not in numeros:
-                matriz.append(linea.strip()) #se guardan las lineas de WL.
+                matriz.append(linea.strip()) #se guardan las lineas de WL
                 n += 1
             else:
                 consultas.append(linea.strip())  
-    except EOFError: 
+    except EOFError: #Se trata a la ultima matriz
+        m = len(matriz[0])
+        for elemento in consultas:
+            consultas=elemento.split(" ")
+            m_max=n
+            n_max=m
+            recorrer(matriz,int(consultas[0])-1,int(consultas[1])-1)
+            print(contador)
+            contador = 0
+            lista_visitados = []
         flag = False
-
