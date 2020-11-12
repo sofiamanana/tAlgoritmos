@@ -98,5 +98,5 @@ while flag == True:
                 n += 1
             else:
                 consultas.append(linea.strip())  
-    except EOFError: #Se trata a la ultima matriz
+    except EOFError:
         flag = False
