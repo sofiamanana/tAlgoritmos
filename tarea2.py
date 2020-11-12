@@ -104,15 +104,6 @@ while flag == True:
                 n += 1
             else:
                 consultas.append(linea.strip())  
-    except EOFError: #Se trata a la ultima matriz.
-        m = len(matriz[0])
-        for elemento in consultas:
-            consultas=elemento.split(" ")
-            m_max=n
-            n_max=m
-            recorrer(matriz,int(consultas[0])-1,int(consultas[1])-1)
-            print(contador)
-            contador = 0
-            lista_visitados = []
+    except EOFError: 
         flag = False
 
