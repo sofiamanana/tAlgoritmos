@@ -1,4 +1,3 @@
-#el yuyo lo dejó de pana
 matriz = []
 consultas = []
 contador = 0
@@ -67,63 +66,46 @@ def recorrer(matriz1,m,n):
                 recorrer(matriz1,m+1,n-1)
 
 #nxm : filas(horizontal) x columnas
-def pasar_a_matriz(textfile):
-    global matriz
-    global numeros
-    global consultas
-    global contador
-    global lista_visitados
-    global m_max
-    global n_max
-    n = 0;
-    m = 0;
-    casos = 0
-    archivo = open(textfile, "r")
-    casos = archivo.readline()
-    archivo.readline() #se lee el espacio continuo a la cantidad de casos
-    for linea in archivo:
-        if (linea == "\n"):
+n = 0
+m = 0
+casos = 0
+casos = int(input())
+input() #se lee el espacio continuo a la cantidad de casos
+flag = True
+while flag == True:
+    try:
+        linea = input()
+        if (linea == ''): #se acabo la matriz
             m = len(matriz[0])
             for elemento in consultas:
                 consultas=elemento.split(" ")
-                #print("consultas",consultas)
                 m_max=n
                 n_max=m
                 recorrer(matriz,int(consultas[0])-1,int(consultas[1])-1)
-                #print(lista_visitados)
                 print(contador)
                 contador = 0
                 lista_visitados = []
-
- 
-            print("--------------")
+            print(" ")
             n = 0
             m = 0
             matriz = []
             consultas = []
-        
         else:
-            if(linea != "\n" and (linea[0] not in numeros)): #guardar en alguna parte
+            linea.split(' ')
+            if linea[0] not in numeros:
                 matriz.append(linea.strip()) #se guardan las lineas de WL
                 n += 1
-            elif (linea[0] in numeros):
-                consultas.append(linea.strip())
-    
-    #Esto trabaja la ultima matriz
-    m = len(matriz[0])
-    for elemento in consultas:
-        consultas=elemento.split(" ")
-        m_max=n
-        n_max=m
-        recorrer(matriz,int(consultas[0])-1,int(consultas[1])-1)
-        #print(lista_visitados)
-        print(contador)
-        contador = 0
-        lista_visitados = []
-    matriz = []
-    archivo.close()
-
-pasar_a_matriz("algo2.txt")
-
-
+            else:
+                consultas.append(linea.strip())  
+    except EOFError: #Se trata a la ultima matriz
+        m = len(matriz[0])
+        for elemento in consultas:
+            consultas=elemento.split(" ")
+            m_max=n
+            n_max=m
+            recorrer(matriz,int(consultas[0])-1,int(consultas[1])-1)
+            print(contador)
+            contador = 0
+            lista_visitados = []
+        flag = False
 
