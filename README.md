@@ -1,12 +1,12 @@
 # Tarea 1 Algoritmos y Complejidad
 
-####Integrantes:
+#### Integrantes:
 
 - Alfredo Llanos 201804536-5
 - Sofia Mañana 201804535-7
 - Fernanda Cerda 201804567-5
     
-####Ejecución
+#### Ejecución
 
 - En consola: python archivo.py <input.txt
 - En este caso se realizó la prueba con los ejemplos de input dados en la tarea. 
