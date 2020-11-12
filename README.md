@@ -8,5 +8,6 @@ Integrantes:
 Ejecución
 
     -En consola: python archivo.py <input.txt
-    -> en este caso se realizó la prueba con los ejemplos de input dados en la tarea. (python tarea1.py <algo.txt, python tarea2.py <algo2.txt)
+    -> en este caso se realizó la prueba con los ejemplos de input dados en la tarea. 
+    (python tarea1.py <algo.txt, python tarea2.py <algo2.txt)
    
