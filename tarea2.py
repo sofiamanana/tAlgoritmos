@@ -76,7 +76,7 @@ flag = True
 while flag == True:
     try:
         linea = input()
-        if (linea == ''): #se acabo la matriz
+        if (linea.strip() == ""): #se acabo la matriz
             m = len(matriz[0])
             for elemento in consultas:
                 consultas=elemento.split(" ")

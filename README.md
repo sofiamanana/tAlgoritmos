@@ -8,7 +8,7 @@
     
 #### Ejecución
 
-- En consola: python archivo.py <input.txt
+- En consola: make run1 para la pregunta 1 y make run2 para la pregunta2.
 - En este caso se realizó la prueba con los ejemplos de input dados en la tarea. 
-    (python tarea1.py <algo.txt, python tarea2.py <algo2.txt)
+    (python tarea1.py < algo.txt, python tarea2.py < algo2.txt)
    
